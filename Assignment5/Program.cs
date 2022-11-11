@@ -1,25 +1,61 @@
 ﻿using Assignment5;
+using System.Diagnostics;
 
 class Program
 {
     static void Main(string[] args)
-    {
+    { 
+        // try-catch-finally
+         try
+         {
+            SearchRecipe(null);
+         }
+         catch (RecipeNotFoundException)
+         {
+            Console.WriteLine("Exception ocurred,recipe not found");
+         }
 
-        PostBlog newBlog = new PostBlog();
-        Console.WriteLine("Enter Product name:");
-        newBlog.Name = null; //Console.ReadLine();
-        Console.WriteLine("Product name is : {0}", newBlog.Name);
-        Console.ReadLine();
+         catch (Exception)
+         {
+            Console.WriteLine("An error occurred");
+         }
+
+         finally
+         {
+            Console.WriteLine("Finally block");
+         }
 
 
-
-        public static void DoSomethingWithUser(User user)
+        //rethrow exception
+        Recipe recipe2 = new Recipe("oil", "butter");
+        try
         {
-            if (user == null)
-            {
-                throw new RecipeNotFoundException();
-            }
+            recipe2.show();
         }
+        catch (IndexOutOfRangeException e)
+        {
+            Console.WriteLine("I caught rethrow exception");
+        }
+
+
+        //conditional compilation
+        #if RELEASE
+                Console.WriteLine("Release mode");
+        #endif
+        Console.WriteLine("Debug mode");
+
+        //debug class
+        Debug.WriteLine("Exiting Main");
+
     }
+
+         //throw custom exception
+         static void SearchRecipe(Recipe recipe)
+            {
+                if (recipe == null)
+                {
+                    throw new RecipeNotFoundException();
+                }
+            }
 
 }
