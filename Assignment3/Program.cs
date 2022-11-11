@@ -1,53 +1,46 @@
-﻿using Assignment3;
+﻿using Assignment3_2;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 
 //IEnumerable- interface that enables iterating over collections
 //ICloneable-interface that allows objects to provide cloning support
-class Program:Car
+class Program
 {
     static void Main(string[] args)
     {
-        Car car = new Car();
-        car.gas = 40;
-        car.Drive(100);
-        car.Go();
+        Person person = new Person(Person.Gender.Male, "Mihai", "Pop", new DateTime(1992, 06, 21));
 
-        SportsCar sportscar = new SportsCar();
-        sportscar.gas = 40;
-        sportscar.speed = 70;
-        sportscar.Drive(100);
-        sportscar.Go();
+        User user1 = new User(Person.Gender.Female, "Andreea", "Pop", new DateTime(1995, 07, 12));
+        User user2 = user1.Clone() as User;
+        User user3 = new User(Person.Gender.Female, "Maria", "Silaghi", new DateTime(1998, 03, 07));
 
-        SportsCar sportscar2 = sportscar.Clone() as SportsCar;
-        sportscar2.Drive(100);
-        sportscar2.Go();
+        Admin admin = new Admin(Person.Gender.Female, "Diandra", "Gherman", new DateTime(2000, 01, 07));
+        
+        user1.Id = 12345;
+        person.ViewBlog();
+        user1.ViewBlog();
+        user2.DeletePost();
+        user3.DeletePost();
+        admin.DeletePost(user1.Id);
+        admin.ViewBlog();
 
+        MealPrep mealprep = new MealPrep();
 
-        Truck truck = new Truck();
-        truck.gas = 40;
-        truck.speed = 50;
-        truck.Drive(100,10);
-        truck.Go();
-
-
-        CarService service= new CarService();
-
-        foreach(BrokenCars brokencar in service)
+        foreach (Recipe recipe in mealprep)
         {
-            if(!brokencar.IsRepaired)
+            if (recipe.DryIngredient=="normal flour")
             {
-                brokencar.RepairCar("yes");
+                recipe.IsGlutenfree("is not");
             }
             else
             {
-                brokencar.RepairCar("no");
+                recipe.IsGlutenfree("is");
             }
         }
 
+
+
     }
 }
-
-
-

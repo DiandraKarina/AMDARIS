@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Amdaris\\C#Basics\\Assignment3\\Assignment3.csproj",
-      "projectName": "Assignment3",
-      "projectPath": "F:\\Amdaris\\C#Basics\\Assignment3\\Assignment3.csproj",
+      "projectUniqueName": "F:\\Amdaris\\C#Basics\\Assignment3_2\\Assignment3_2.csproj",
+      "projectName": "Assignment3_2",
+      "projectPath": "F:\\Amdaris\\C#Basics\\Assignment3_2\\Assignment3_2.csproj",
       "packagesPath": "C:\\Users\\Diandra\\.nuget\\packages\\",
-      "outputPath": "F:\\Amdaris\\C#Basics\\Assignment3\\obj\\",
+      "outputPath": "F:\\Amdaris\\C#Basics\\Assignment3_2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
