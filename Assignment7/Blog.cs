@@ -10,14 +10,22 @@ namespace Assignment7
     {
         public int BlogId { get; set; }
         public string BlogName { get; set; }
-
-        public string BlogCategory { get; set; }
-
+        public BlogCategory Category { get; set; }
         public DateTime BlogDate { get; set; }
 
         public Blog()
         {
             BlogDate = DateTime.Now;
+        }
+
+        public enum BlogCategory
+        {
+            Breakfast,
+            Dinner,
+            Lunch,
+            Snacks,
+            Dessert,
+
         }
     }
 }

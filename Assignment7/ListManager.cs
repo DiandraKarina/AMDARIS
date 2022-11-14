@@ -32,13 +32,14 @@ namespace Assignment7
 
         public static List<Blog> LoadBlogs()
         {
+            
             List<Blog> list=new List<Blog>();
-            list.Add(new Blog() { BlogCategory = "Breakfast", BlogDate = Convert.ToDateTime("4/14/2022"), BlogId = 12, BlogName = "Oatmeal Recipe" });
-            list.Add(new Blog() { BlogCategory = "Dinner", BlogDate = Convert.ToDateTime("2/18/2022"), BlogId = 6, BlogName = "Lasagna Recipe" });
-            list.Add(new Blog() { BlogCategory = "Lunch", BlogDate = Convert.ToDateTime("7/09/2022"), BlogId = 2, BlogName = "Sushi Bowl" });
-            list.Add(new Blog() { BlogCategory = "Snacks", BlogDate = Convert.ToDateTime("3/27/2021"), BlogId = 28, BlogName = "Bounty Bars" });
-            list.Add(new Blog() { BlogCategory = "Desserts", BlogDate = Convert.ToDateTime("9/12/2021"), BlogId = 18, BlogName = "Strawberry Cheesecake" });
-            list.Add(new Blog() { BlogCategory = "Lunch", BlogDate = Convert.ToDateTime("7/08/2022"), BlogId = 3, BlogName = "Tuna Salad" });
+            list.Add(new Blog() { Category = Blog.BlogCategory.Breakfast, BlogDate = Convert.ToDateTime("4/14/2022"), BlogId = 12, BlogName = "Oatmeal Recipe" });
+            list.Add(new Blog() { Category = Blog.BlogCategory.Dinner, BlogDate = Convert.ToDateTime("2/18/2022"), BlogId = 6, BlogName = "Lasagna Recipe" });
+            list.Add(new Blog() { Category = Blog.BlogCategory.Lunch, BlogDate = Convert.ToDateTime("7/09/2022"), BlogId = 2, BlogName = "Sushi Bowl" });
+            list.Add(new Blog() { Category = Blog.BlogCategory.Snacks, BlogDate = Convert.ToDateTime("3/27/2021"), BlogId = 28, BlogName = "Bounty Bars" });
+            list.Add(new Blog() { Category = Blog.BlogCategory.Dessert, BlogDate = Convert.ToDateTime("9/12/2021"), BlogId = 18, BlogName = "Strawberry Cheesecake" });
+            list.Add(new Blog() { Category = Blog.BlogCategory.Lunch, BlogDate = Convert.ToDateTime("7/08/2022"), BlogId = 3, BlogName = "Tuna Salad" });
             return list;
         }
     }

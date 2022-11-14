@@ -9,10 +9,6 @@ class Program
     static void Main(string[] args)
     {
         List<Comment> comments1=ListManager.LoadComments_1();
-        foreach(var comment in comments1)
-        {
-            Console.WriteLine($"User with Id {comment.AuthorId} commented \"{comment.Message}\" [{comment.CommentId}], on {comment.CommentDate}");
-        }
 
         //Ordering
         List<Comment> orderedcomments=ListManager.LoadComments_1();
@@ -45,16 +41,16 @@ class Program
         List<Blog> blogs = ListManager.LoadBlogs();
         foreach (var blog in blogs)
         {
-            Console.WriteLine($"The blogpost for {blog.BlogName} with Id {blog.BlogId} from category {blog.BlogCategory} was posted on {blog.BlogDate} ");
+            Console.WriteLine($"The blogpost for {blog.BlogName} with Id {blog.BlogId} from category {blog.Category} was posted on {blog.BlogDate} ");
         }
 
-        var GroupByCat = blogs.GroupBy(b => b.BlogCategory);
+        var GroupByCat = blogs.GroupBy(b => b.Category);
 
         foreach (var blog in GroupByCat)
         {
             foreach (var category in blog)
             {
-                Console.WriteLine($"Category {category.BlogCategory}");
+                Console.WriteLine($"Category {category.Category}");
             }
         }
         
