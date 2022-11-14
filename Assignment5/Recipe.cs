@@ -22,7 +22,7 @@ namespace Assignment5
             Console.WriteLine("This recipe containing {0} as the dry ingredient {1} in the gluten free category", DryIngredient, x);
         }
 
-        public void show()
+        public void Show()
         {
             try
             {

@@ -30,7 +30,7 @@ class Program
         Recipe recipe2 = new Recipe("oil", "butter");
         try
         {
-            recipe2.show();
+            recipe2.Show();
         }
         catch (IndexOutOfRangeException e)
         {
