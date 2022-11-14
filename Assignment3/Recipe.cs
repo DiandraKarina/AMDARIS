@@ -22,7 +22,5 @@ namespace Assignment3_2
             Console.WriteLine("This recipe containing {0} as the dry ingredient {1} in the gluten free category",DryIngredient,x);
         }
 
-   
-
     }
 }

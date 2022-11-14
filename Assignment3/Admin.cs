@@ -8,7 +8,7 @@ namespace Assignment3_2
 {
     internal class Admin : Person
     {
-        public Admin(Gender gen, string firstname, string lastname, DateTime? dob = null) : base(gen, firstname, lastname, dob)
+        public Admin(Enums.Gender gen, string firstname, string lastname, DateTime? dob = null) : base(gen, firstname, lastname, dob)
         {
         }
 
@@ -16,9 +16,6 @@ namespace Assignment3_2
         {
             Console.WriteLine("Admin deleted post of user {0}", id);
         }
-
-        
-
-        
+  
     }
 }

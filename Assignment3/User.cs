@@ -9,7 +9,7 @@ namespace Assignment3_2
 {
     internal class User : Person, ICloneable
     {
-        public User(Gender gen, string firstname, string lastname, DateTime? dob = null) : base(gen, firstname, lastname, dob)
+        public User(Enums.Gender gen, string firstname, string lastname, DateTime? dob = null) : base(gen, firstname, lastname, dob)
         {
         }
 
@@ -30,6 +30,5 @@ namespace Assignment3_2
             return this;
         }
 
-      
     }
 }

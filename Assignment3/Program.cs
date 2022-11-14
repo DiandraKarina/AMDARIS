@@ -10,13 +10,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Person person = new Person(Person.Gender.Male, "Mihai", "Pop", new DateTime(1992, 06, 21));
+        Person person = new Person(Enums.Gender.Male, "Mihai", "Pop", new DateTime(1992, 06, 21));
 
-        User user1 = new User(Person.Gender.Female, "Andreea", "Pop", new DateTime(1995, 07, 12));
+        User user1 = new User(Enums.Gender.Female, "Andreea", "Pop", new DateTime(1995, 07, 12));
         User user2 = user1.Clone() as User;
-        User user3 = new User(Person.Gender.Female, "Maria", "Silaghi", new DateTime(1998, 03, 07));
+        User user3 = new User(Enums.Gender.Female, "Maria", "Silaghi", new DateTime(1998, 03, 07));
 
-        Admin admin = new Admin(Person.Gender.Female, "Diandra", "Gherman", new DateTime(2000, 01, 07));
+        Admin admin = new Admin(Enums.Gender.Female, "Diandra", "Gherman", new DateTime(2000, 01, 07));
         
         user1.Id = 12345;
         person.ViewBlog();
@@ -39,8 +39,6 @@ class Program
                 recipe.IsGlutenfree("is");
             }
         }
-
-
 
     }
 }
