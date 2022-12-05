@@ -9,21 +9,23 @@ namespace Domain.Models
 {
     public class User
     {
-        public User(string firstname, string lastname, int id, Gender gen, DateTime? dob = null)
+        public User(string firstname, string lastname, int id, Gender gen,string emailAddress, DateTime dob = default)
         {
 
             this.FirstName = firstname;
             this.LastName = lastname;
             this.Id = Id;
             this.Gender = gen;
-            this.DOB = (DateTime)dob;
+            this.EmailAddress= emailAddress;
+            this.DOB = dob;
 
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Id { get; set; }
-        public Gender Gender { get; set; }// can't change gender
-        public DateTime DOB { get; private set; } // can't change date of birth
+        public Gender Gender { get; set; }
+        public DateTime DOB { get; private set; } 
+        public string EmailAddress { get; set; }
 
         
     }

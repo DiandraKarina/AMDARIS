@@ -10,13 +10,24 @@ namespace Domain.Models
     {
         public Comment()
         {
-            CommentDate = DateTime.Now;
+            
         }
         public int CommentId { get; set; }
         public string Message { get; set; }
         public int UserId { get; set; }
         public DateTime CommentDate { get; set; }
         public int BlogPostId { get; set; }
+
+        public static Comment CreateComment(int blogPostId,string message,int userId)
+        {
+            return new Comment
+            {
+                BlogPostId = blogPostId,
+                Message = message,
+                UserId = userId,
+                CommentDate = DateTime.Now,
+            };
+        }
 
         
     }

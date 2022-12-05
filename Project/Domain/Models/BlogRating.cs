@@ -8,8 +8,19 @@ namespace Domain.Models
 {
     public class BlogRating
     {
+        public BlogRating() { }
         public int BlogId { get; set; }
         public int UserId { get; set; }
         public int Stars { get; set; }
+
+        public static BlogRating CreateBlogRating(int blogId, int stars, int userId)
+        {
+            return new BlogRating
+            {
+                BlogId = blogId,
+                UserId = userId,
+                Stars = stars,
+            };
+        }
     }
 }
