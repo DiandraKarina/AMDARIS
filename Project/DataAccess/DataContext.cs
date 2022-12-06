@@ -21,7 +21,7 @@ namespace DataAccess
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-RLE2IV1;Database=MyProject;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-RLE2IV1;Database=BlogAmdaris;Trusted_Connection=True;");
         }
 
        

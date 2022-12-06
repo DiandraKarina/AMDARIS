@@ -12,7 +12,8 @@ namespace Domain.Models
         private PostRating() { }
         public int Id { get; set; }
         public BlogPost BlogPost { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
+        public User User { get; set; }
         public int Stars { get; set; }
 
         public static PostRating CreatePostRating(BlogPost blogPost, int stars, int userId)

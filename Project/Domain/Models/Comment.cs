@@ -12,7 +12,8 @@ namespace Domain.Models
         private Comment() { }
         public int CommentId { get; set; }
         public string Message { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
+        public User User { get; set; }
         public DateTime CommentDate { get; set; }
         public BlogPost BlogPost{ get; set; }
 
