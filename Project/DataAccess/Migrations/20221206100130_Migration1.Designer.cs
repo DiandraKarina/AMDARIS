@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221205154558_Migration5")]
-    partial class Migration5
+    [Migration("20221206100130_Migration1")]
+    partial class Migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,6 +62,9 @@ namespace DataAccess.Migrations
                     b.Property<int>("BlogId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -77,12 +80,12 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PostRatingId")
-                        .HasColumnType("int");
-
                     b.HasKey("BlogPostId");
 
                     b.HasIndex("BlogId");
+
+                    b.HasIndex("CategoryId")
+                        .IsUnique();
 
                     b.ToTable("BlogPosts");
                 });
@@ -119,17 +122,11 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
-                    b.Property<int>("BlogPostId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryId");
-
-                    b.HasIndex("BlogPostId")
-                        .IsUnique();
 
                     b.ToTable("Category");
                 });
@@ -236,7 +233,15 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Models.Category", "Category")
+                        .WithOne("BlogPost")
+                        .HasForeignKey("Domain.Models.BlogPost", "CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Blog");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Domain.Models.BlogRating", b =>
@@ -248,17 +253,6 @@ namespace DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Blog");
-                });
-
-            modelBuilder.Entity("Domain.Models.Category", b =>
-                {
-                    b.HasOne("Domain.Models.BlogPost", "BlogPost")
-                        .WithOne("Category")
-                        .HasForeignKey("Domain.Models.Category", "BlogPostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("BlogPost");
                 });
 
             modelBuilder.Entity("Domain.Models.Comment", b =>
@@ -275,7 +269,7 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Domain.Models.PostRating", b =>
                 {
                     b.HasOne("Domain.Models.BlogPost", "BlogPost")
-                        .WithMany("PostRatingList")
+                        .WithMany("PostRatings")
                         .HasForeignKey("BlogPostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -292,12 +286,15 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Models.BlogPost", b =>
                 {
-                    b.Navigation("Category")
-                        .IsRequired();
-
                     b.Navigation("Comments");
 
-                    b.Navigation("PostRatingList");
+                    b.Navigation("PostRatings");
+                });
+
+            modelBuilder.Entity("Domain.Models.Category", b =>
+                {
+                    b.Navigation("BlogPost")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Models.User", b =>

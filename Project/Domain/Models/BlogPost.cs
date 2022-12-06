@@ -18,7 +18,6 @@ namespace Domain.Models
         public Blog Blog { get; set; }
         public DateTime CreatedDate { get; set; }
         public List<PostRating> PostRatings { get; set; }
-
         public List<Comment> Comments { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
