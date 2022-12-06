@@ -6,6 +6,10 @@ class Program
 {
     static void Main(string[] args)
     {
+
+    }
+    /*static void Main(string[] args)
+    {
         //create user
         User user1 = new User("Diandra", "Gherman", 01, Gender.Female);
 
@@ -248,217 +252,218 @@ class Program
 
                 */
 
-        /* switch (selection)
-         {
-             case 1:
+    /* switch (selection)
+     {
+         case 1:
 
-                 switch (selection)
-                 {
-                     WriteLine("Write comment:");
+             switch (selection)
+             {
+                 WriteLine("Write comment:");
+             comments[0].Message = ReadLine();
+             comments[0].CommentId = 01;
+             post1.AddComment(comments[0]);
+             WriteLine($"User1 commented{comments[0].Message} to blogpost2");
+             break;
+
+     }
+             break;
+
+         case 4:
+             {
+                 WriteLine("Write comment:");
+                 comments[0].Message = ReadLine();
+                 comments[0].CommentId = 02;
+                 post2.AddComment(comments[0]);
+                 WriteLine($"User2 commented{comments[0].Message} to blogpost1");
+
+             }
+             break;
+
+     }
+    */
+
+    /*
+
+    Category category1 = new Category();
+    category1.Name = "Breakfast";
+    category1.CategoryId = 1;
+    post1.Categories.Add(category1);
+
+    Category category2 = new Category();
+    category2.Name = "Dessert";
+    category2.CategoryId = 2;
+    post1.Categories.Add(category2);
+    */
+
+    /*List<BlogRating> ratings=new List<BlogRating>();
+    ratings.Add(new BlogRating());
+    string R = ReadLine();
+    ratings[0].Stars = Int32.Parse(R);
+    ratings.Add(new BlogRating());
+    string R2 = ReadLine();
+    ratings[1].Stars = Int32.Parse(R2);
+    ratings.Add(new BlogRating());
+    string R3 = ReadLine();
+    ratings[2].Stars = Int32.Parse(R3);
+
+     double AverageRating(List<BlogRating> blogRatings)
+    {
+        double avg = blogRatings.Average(a => a.Stars);
+        return avg;
+    }
+    var x=AverageRating(ratings);
+    WriteLine(x);
+    */
+    /* WriteLine("How many users do you want to create?");
+     string x = ReadLine();
+     int count = Int32.Parse(x);
+
+     for (var i = 0; i <= count - 1; i++)
+     {
+         WriteLine("Enter user data:");
+
+         WriteLine("Enter first name:");
+         string FirstName = ReadLine();
+
+         WriteLine("Enter last name:");
+         string LastName = ReadLine();
+
+         WriteLine("Enter id:");
+         string id = ReadLine();
+         int Id = Int32.Parse(id);
+
+         WriteLine("Enter gender:");
+         string gender = ReadLine();
+         Gender EnumValue;
+         Gender.TryParse(gender, out EnumValue);
+
+         User user1 = new User(FirstName, LastName, Id, EnumValue);
+
+         WriteLine($"A new account has been created for user {FirstName} {LastName}");
+
+         List<Category> categories = new List<Category>();
+         WriteLine("Enter the number of categories you want for your blog:");
+
+         string x2 = ReadLine();
+         int count2 = Int32.Parse(x2);
+
+         WriteLine("Enter the name of the categories:");
+         for (var i2 = 0; i2 <= count2 - 1; i2++)
+         {
+             categories.Add(new Category());
+             categories[i2].Name = ReadLine();
+         }
+         WriteLine("The user introduced in her blog the categories:");
+         foreach (Category category in categories)
+         {
+             WriteLine(category.GetData());
+         }
+
+         WriteLine("Creating the blog...");
+         Blog blog1 = new Blog(001, user1.Id, categories);
+     }
+
+
+     List<Comment> comments = new List<Comment>();
+     comments.Add(new Comment());
+     BlogPost post1 = new BlogPost();
+     BlogPost post2 = new BlogPost();
+
+     WriteLine("Create blogpost for user1:");
+     WriteLine("Name of blogpost:");
+     post1.PostName = ReadLine();
+     WriteLine("Name of category:");
+     post1.CategoryName = ReadLine();
+
+     WriteLine("Create blogpost for user2:");
+     WriteLine("Name of blogpost:");
+     post2.PostName = ReadLine();
+     WriteLine("Name of category:");
+     post2.CategoryName = ReadLine();
+
+     PostRating rating = new PostRating();
+
+     WriteLine("Press 3 if user 1 wants to add comment to blogpost of user 2\n" +
+               "Press 4 if user 2 wants to add comment to blogpost of user 1");
+
+     int selection = int.Parse(Console.ReadLine());
+
+
+     switch (selection)
+     {
+         case 3:
+             {
+                 WriteLine("Write comment:");
                  comments[0].Message = ReadLine();
                  comments[0].CommentId = 01;
                  post1.AddComment(comments[0]);
                  WriteLine($"User1 commented{comments[0].Message} to blogpost2");
-                 break;
 
-         }
-                 break;
-
-             case 4:
-                 {
-                     WriteLine("Write comment:");
-                     comments[0].Message = ReadLine();
-                     comments[0].CommentId = 02;
-                     post2.AddComment(comments[0]);
-                     WriteLine($"User2 commented{comments[0].Message} to blogpost1");
-
-                 }
-                 break;
-
-         }
-        */
-
-        /*
-
-        Category category1 = new Category();
-        category1.Name = "Breakfast";
-        category1.CategoryId = 1;
-        post1.Categories.Add(category1);
-
-        Category category2 = new Category();
-        category2.Name = "Dessert";
-        category2.CategoryId = 2;
-        post1.Categories.Add(category2);
-        */
-
-        /*List<BlogRating> ratings=new List<BlogRating>();
-        ratings.Add(new BlogRating());
-        string R = ReadLine();
-        ratings[0].Stars = Int32.Parse(R);
-        ratings.Add(new BlogRating());
-        string R2 = ReadLine();
-        ratings[1].Stars = Int32.Parse(R2);
-        ratings.Add(new BlogRating());
-        string R3 = ReadLine();
-        ratings[2].Stars = Int32.Parse(R3);
-
-         double AverageRating(List<BlogRating> blogRatings)
-        {
-            double avg = blogRatings.Average(a => a.Stars);
-            return avg;
-        }
-        var x=AverageRating(ratings);
-        WriteLine(x);
-        */
-        /* WriteLine("How many users do you want to create?");
-         string x = ReadLine();
-         int count = Int32.Parse(x);
-
-         for (var i = 0; i <= count - 1; i++)
-         {
-             WriteLine("Enter user data:");
-
-             WriteLine("Enter first name:");
-             string FirstName = ReadLine();
-
-             WriteLine("Enter last name:");
-             string LastName = ReadLine();
-
-             WriteLine("Enter id:");
-             string id = ReadLine();
-             int Id = Int32.Parse(id);
-
-             WriteLine("Enter gender:");
-             string gender = ReadLine();
-             Gender EnumValue;
-             Gender.TryParse(gender, out EnumValue);
-
-             User user1 = new User(FirstName, LastName, Id, EnumValue);
-
-             WriteLine($"A new account has been created for user {FirstName} {LastName}");
-
-             List<Category> categories = new List<Category>();
-             WriteLine("Enter the number of categories you want for your blog:");
-
-             string x2 = ReadLine();
-             int count2 = Int32.Parse(x2);
-
-             WriteLine("Enter the name of the categories:");
-             for (var i2 = 0; i2 <= count2 - 1; i2++)
-             {
-                 categories.Add(new Category());
-                 categories[i2].Name = ReadLine();
              }
-             WriteLine("The user introduced in her blog the categories:");
-             foreach (Category category in categories)
+             break;
+
+         case 4:
              {
-                 WriteLine(category.GetData());
+                 WriteLine("Write comment:");
+                 comments[0].Message = ReadLine();
+                 comments[0].CommentId = 02;
+                 post2.AddComment(comments[0]);
+                 WriteLine($"User2 commented{comments[0].Message} to blogpost1");
+
              }
+             break;
 
-             WriteLine("Creating the blog...");
-             Blog blog1 = new Blog(001, user1.Id, categories);
-         }
+     }
 
-
-         List<Comment> comments = new List<Comment>();
-         comments.Add(new Comment());
-         BlogPost post1 = new BlogPost();
-         BlogPost post2 = new BlogPost();
-
-         WriteLine("Create blogpost for user1:");
-         WriteLine("Name of blogpost:");
-         post1.PostName = ReadLine();
-         WriteLine("Name of category:");
-         post1.CategoryName = ReadLine();
-
-         WriteLine("Create blogpost for user2:");
-         WriteLine("Name of blogpost:");
-         post2.PostName = ReadLine();
-         WriteLine("Name of category:");
-         post2.CategoryName = ReadLine();
-
-         PostRating rating = new PostRating();
-
-         WriteLine("Press 3 if user 1 wants to add comment to blogpost of user 2\n" +
-                   "Press 4 if user 2 wants to add comment to blogpost of user 1");
-
-         int selection = int.Parse(Console.ReadLine());
+     WriteLine("Press 5 if you want to delete comment 1\n" +
+               "Press 6 if you want to delete comment 2");
 
 
-         switch (selection)
-         {
-             case 3:
-                 {
-                     WriteLine("Write comment:");
-                     comments[0].Message = ReadLine();
-                     comments[0].CommentId = 01;
-                     post1.AddComment(comments[0]);
-                     WriteLine($"User1 commented{comments[0].Message} to blogpost2");
+     int selection2 = int.Parse(Console.ReadLine());
 
-                 }
-                 break;
+     switch (selection2)
+     {
+         case 5:
 
-             case 4:
-                 {
-                     WriteLine("Write comment:");
-                     comments[0].Message = ReadLine();
-                     comments[0].CommentId = 02;
-                     post2.AddComment(comments[0]);
-                     WriteLine($"User2 commented{comments[0].Message} to blogpost1");
+             post1.RemoveComment(comments[0]);
 
-                 }
-                 break;
+             break;
+         case 6:
 
-         }
+             post2.RemoveComment(comments[0]);
 
-         WriteLine("Press 5 if you want to delete comment 1\n" +
-                   "Press 6 if you want to delete comment 2");
+             break;
+     }
 
+     WriteLine("Press 7 if you want to rate post1\n" +
+               "Press 8 if you want to rate post2");
 
-         int selection2 = int.Parse(Console.ReadLine());
+     int Selection3 = int.Parse(Console.ReadLine());
 
-         switch (selection2)
-         {
-             case 5:
+     switch (Selection3)
+     {
+         case 7:
+             {
+                 WriteLine("Enter the number of stars (from 1 to 5)");
+                 string r = ReadLine();
+                 rating.Stars = Int32.Parse(r);
+                 post1.AddRating(rating);
+                 WriteLine($"You rated post \"{post1.PostName}\" with {rating.Stars} stars");
+             }
+             break;
+         case 8:
+             {
+                 WriteLine("Enter the number of stars (from 1 to 5)");
+                 string r = ReadLine();
+                 rating.Stars = Int32.Parse(r);
+                 post2.AddRating(rating);
+                 WriteLine($"You rated post \"{post2.PostName}\" with {rating.Stars} stars");
+             }
+             break;
+     }
+    */
 
-                 post1.RemoveComment(comments[0]);
-
-                 break;
-             case 6:
-
-                 post2.RemoveComment(comments[0]);
-
-                 break;
-         }
-
-         WriteLine("Press 7 if you want to rate post1\n" +
-                   "Press 8 if you want to rate post2");
-
-         int Selection3 = int.Parse(Console.ReadLine());
-
-         switch (Selection3)
-         {
-             case 7:
-                 {
-                     WriteLine("Enter the number of stars (from 1 to 5)");
-                     string r = ReadLine();
-                     rating.Stars = Int32.Parse(r);
-                     post1.AddRating(rating);
-                     WriteLine($"You rated post \"{post1.PostName}\" with {rating.Stars} stars");
-                 }
-                 break;
-             case 8:
-                 {
-                     WriteLine("Enter the number of stars (from 1 to 5)");
-                     string r = ReadLine();
-                     rating.Stars = Int32.Parse(r);
-                     post2.AddRating(rating);
-                     WriteLine($"You rated post \"{post2.PostName}\" with {rating.Stars} stars");
-                 }
-                 break;
-         }
-        */
     }
-}
+
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -9,26 +10,25 @@ namespace Domain.Models
 {
     public class BlogPost
     {
-        public BlogPost() { }
+        private BlogPost() { }
         public string Image { get; set; }
         public string PostName { get; set; }
         public string Description { get; set; }
         public int BlogPostId { get; set; }
-        public int BlogId { get; set; }
-        public int PostRatingId { get; set; }
+        public Blog Blog { get; set; }
         public DateTime CreatedDate { get; set; }
+        public List<PostRating> PostRatings { get; set; }
 
-        public List<PostRating> PostRatingList=new List<PostRating>();
-
-        public List<Comment> Comments = new List<Comment>();
+        public List<Comment> Comments { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
 
         //Factory
-        public static BlogPost CreateBlogpost(int blogId, Category category, string image,string postName)
+        public static BlogPost CreateBlogpost(Blog blog, Category category, string image,string postName)
         {
             return new BlogPost
             {
-                BlogId = blogId,
+                Blog = blog,
                 Category=category,
                 Image = image,
                 PostName = postName,
@@ -47,7 +47,7 @@ namespace Domain.Models
         public void AddRating(PostRating postRating)
         {
 
-            PostRatingList.Add(postRating);
+            PostRatings.Add(postRating);
         }
 
         public double AverageRating(List<PostRating> postRatings)

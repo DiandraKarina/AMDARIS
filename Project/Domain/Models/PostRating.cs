@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,16 +9,17 @@ namespace Domain.Models
 {
     public class PostRating
     {
-        public PostRating() { }
-        public int BlogPostId { get; set; }
+        private PostRating() { }
+        public int Id { get; set; }
+        public BlogPost BlogPost { get; set; }
         public int UserId { get; set; }
         public int Stars { get; set; }
 
-        public static PostRating CreatePostRating(int blogPostId, int stars, int userId)
+        public static PostRating CreatePostRating(BlogPost blogPost, int stars, int userId)
         {
             return new PostRating
             {
-                BlogPostId = blogPostId,
+                BlogPost= blogPost,
                 UserId = userId,
                 Stars = stars,
             };

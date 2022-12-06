@@ -7,29 +7,24 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccess.Configurations;
+
 
 namespace DataAccess
 {
-    public class DataContext : IdentityDbContext
+    public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions options) : base(options)
-        {
-
-        }
+       // public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+       
         public DbSet<User> Users { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-
-
-        protected override void OnModelCreating(ModelBuilder builder)
+        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            builder.ApplyConfiguration(new AddCommentConfig());
-            builder.ApplyConfiguration(new AddBlogPostConfig());
-            builder.ApplyConfiguration(new CreateBlogConfig());
-            builder.ApplyConfiguration(new AddPostRatingConfig());
-            builder.ApplyConfiguration(new AddBlogRatingConfig());
+            optionsBuilder.UseSqlServer("Server=DESKTOP-RLE2IV1;Database=MyProject;Trusted_Connection=True;");
         }
+
+       
+
     }
 }

@@ -13,11 +13,12 @@ namespace DataAccess
     {
         private readonly List<BlogPost> _blogposts = new();
         private readonly List<Category> _categories = new();
+        private readonly List<Blog> _blogs = new();
         public InMemoryBlogPostRepository()
         {
-            BlogPost.CreateBlogpost(1, _categories[0], "imageurl", "Banana Pancakes");
-            BlogPost.CreateBlogpost(2, _categories[1], "imageurl2", "Sushi Bowl");
-            BlogPost.CreateBlogpost(3, _categories[2], "imageurl3", "Fish and Chips");
+            BlogPost.CreateBlogpost(_blogs[0], _categories[0], "imageurl", "Banana Pancakes");
+            BlogPost.CreateBlogpost(_blogs[1], _categories[1], "imageurl2", "Sushi Bowl");
+            BlogPost.CreateBlogpost(_blogs[2], _categories[2], "imageurl3", "Fish and Chips");
         }
 
         public void CreateBlogPost(BlogPost blogpost)
