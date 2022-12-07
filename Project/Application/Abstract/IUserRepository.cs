@@ -12,7 +12,7 @@ namespace Application.Abstract
         Task<User> GetById(int userId);
         Task Add(User user);
         Task Remove(User user);
-        Task <IEnumerable<User>> GetAll();
+        Task <List<User>> GetAll();
         Task Update(User user);
     }
 }

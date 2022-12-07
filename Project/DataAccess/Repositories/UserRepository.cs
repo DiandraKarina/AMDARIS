@@ -20,7 +20,7 @@ namespace DataAccess.Repositories
         {
             await _context.Users.AddAsync(user);
         }
-        public async Task<IEnumerable<User>> GetAll()
+        public async Task<List<User>> GetAll()
         {
             return await _context.Users
                 .Take(100)

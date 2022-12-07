@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Abstract;
 
 namespace DataAccess
 {
@@ -20,7 +21,6 @@ namespace DataAccess
 
         public IBlogRepository BlogRepository { get; private set; }
         public IBlogPostRepository BlogPostRepository { get; private set; }
-
         public IUserRepository UserRepository { get; private set; }
         public async Task Save()
         {

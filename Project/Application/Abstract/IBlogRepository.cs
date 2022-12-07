@@ -12,7 +12,7 @@ namespace Application.Abstract
         Task<Blog> GetById(int blogId);
         Task Add(Blog blog);
         Task Remove(Blog blog);
-        Task<IEnumerable<Blog>> GetAll();
+        Task<List<Blog>> GetAll();
         Task Update(Blog blog);
     }
 }

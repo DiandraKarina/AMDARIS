@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Application.Abstract;
+using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace DataAccess.Repositories
         {
             await _context.Blogs.AddAsync(blog);
         }
-        public async Task<IEnumerable<Blog>> GetAll()
+        public async Task<List<Blog>> GetAll()
         {
             return await _context.Blogs
                 .Take(100)
