@@ -1,0 +1,49 @@
+<div class="account-login">
+    <a routerLink='/register'><app-button color="#ce8383" text="Create Account" ></app-button></a>
+    <app-button mat-button disabled color="#ca9e9e" text="Log In" ></app-button>
+</div>
+<nav>
+    <div class="flexi-nav">
+        <app-social color="#ce8383">
+    </app-social>
+    <div class="logo">
+             <h4>food</h4>
+           <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for</h4>
+           <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soul</h4>
+    </div>
+
+    <span class="material-symbols-outlined burger" (click)="toggleMenu()">
+    {{isMenuOpen ? "close" : "menu" }}
+    </span>
+
+    <div class="search-container">
+    <form action="" class="search-bar">
+        <input type="text" placeholder="Căutare.." name="q">
+
+    </form>
+  </div>
+</div>
+
+<div class="menu-nav">
+<ul class="nav-links" *ngIf="isMenuOpen">
+    <li>
+        <a href="#about"> About</a>
+
+    </li>
+    <li>
+        <a href="#blogs">Blogs</a>
+
+    </li>
+    <li>
+        <a href="#categories"> Categories</a>
+
+    </li>
+    <li>
+        <a href="#contact"> Contact</a>
+
+    </li>
+
+</ul>
+</div>
+</nav>
+
