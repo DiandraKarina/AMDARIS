@@ -6,8 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-isMenuOpen=true;
-toggleMenu(): void{
-  this.isMenuOpen=!this.isMenuOpen;
-}
+
+constructor() { }
+  menu_icon_variable: boolean = false;
+  menuVariable: boolean = false;
+  ngOnInit(): void {
+  }
+  openMenu() {
+    this.menuVariable =! this.menuVariable;
+    this.menu_icon_variable =! this.menu_icon_variable;
+  }
+
 }

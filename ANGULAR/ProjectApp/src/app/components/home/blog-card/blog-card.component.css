@@ -7,14 +7,6 @@
   margin: 45px 0 25px 0;
 }
 
-.card-collection{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 96vw;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
 
 article{
   flex: 0 0 calc(25% - 30px);

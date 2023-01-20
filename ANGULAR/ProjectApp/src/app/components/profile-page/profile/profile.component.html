@@ -1,0 +1,23 @@
+
+<app-navbar2></app-navbar2>
+
+<div class="wrapper">
+  <div class="testimonial">
+    <article>
+      <h1> About me</h1>
+        <img src="assets/images/AXFQ0629.JPEG">
+        <blockquote>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        </blockquote>
+      <h5>Diandra</h5>
+    </article>
+  </div>
+</div>
+<div *ngFor="let post of posts" class="card-body row">
+  <app-blog-card  [post]="post"></app-blog-card>
+</div>
+<app-recipe-box></app-recipe-box>
+<div class="create-post-button">
+<a routerLink="/newpost"> <app-button color="pink" text="Add New Post"></app-button></a>
+</div>
+<app-footer></app-footer>

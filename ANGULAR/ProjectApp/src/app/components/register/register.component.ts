@@ -1,3 +1,4 @@
+import { ListKeyManager } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -5,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,8 +14,8 @@ import { Observable } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
   myForm!: FormGroup;
-
-  constructor(private formBuilder: FormBuilder) {
+  hide = true;
+  constructor(private formBuilder: FormBuilder, private authService:AuthService) {
 
   }
 
@@ -23,14 +25,9 @@ export class RegisterComponent implements OnInit {
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       blogName: ['', [Validators.required]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$'),
-        ],
-      ],
-      dob: [
+      facebook:['',Validators.pattern('/^http(s*):\/\/(www.)*facebook\.com\/[a-zA-Z0-9.]+$/i')],
+      instagram:[''],
+      dob:[
         '',
         [
           Validators.required,
@@ -39,11 +36,33 @@ export class RegisterComponent implements OnInit {
           Validators.max(65),
         ],
       ],
-      gender: [''],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$'),
+        ],
+      ],
+      gender: ['']
     });
     this.myForm.valueChanges.subscribe(console.log);
   }
 
+  registerSubmitted(){
+    this.authService.registerUser([
+      this.myForm.value.firstName,
+      this.myForm.value.lastName,
+      this.myForm.value.blogName,
+      this.myForm.value.email,
+      this.myForm.value.password,
+      this.myForm.value.facebook,
+      this.myForm.value.instagram,
+      this.myForm.value.pinterest,
+      this.myForm.value.dob,
+      this.myForm.value.gender
+    ]).subscribe(res=>{console.log(res);
+    })
+  }
   get firstName() {
     return this.myForm.get('firstName');
   }
@@ -63,7 +82,15 @@ export class RegisterComponent implements OnInit {
     return this.myForm.get('password');
   }
 
-
+ get facebook_link(){
+  return this.myForm.get('facebook');
+ }
+ get instagram_link(){
+  return this.myForm.get('instagram');
+ }
+ get pinterest_link(){
+  return this.myForm.get('pinterest');
+ }
   //get dateOfBirth() {
   //  if(this.myForm.get('dob') !=null)
    //  return this.myForm.get('dob').value || new Date()}

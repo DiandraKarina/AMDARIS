@@ -1,21 +1,22 @@
 <div class = "card-wrapper">
-  <div class = "card-collection">
       <article>
           <div class = "img-box">
-              <img src = "src/images/background1.jpg" alt = "">
+              <img src = "http://localhost:53744/Image/{{post.image}}" alt = "">
           </div>
 
           <div class = "text-content">
-              <h3>Article 1</h3>
+              <h3>{{post.title}}</h3>
               <div class = "rating">
                 <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
               </div>
 
-              <p>This is a test description</p>
+              <p>{{post.description}}</p>
+              <span class="aDate">
+                {{post.postedOn}}
+              </span>
               <div class="view-button">
                   <app-button color="pink" text="View"></app-button>
                 </div>
           </div>
       </article>
-</div>
 </div>

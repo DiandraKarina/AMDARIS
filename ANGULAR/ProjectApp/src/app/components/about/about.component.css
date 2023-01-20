@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.content{
+    background: url('src/assets/images/breakfast-g27b176a1d_1920.jpg') no-repeat;
+    background-size:100%;
+    padding:100px 0;
+    min-height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+   background-color: black;
+    
+}
+
+ .textbox{
+    width:55%;
+    float:right;
+    background-color: #fdfdfd;
+    padding:150px;
+    font-family: 'Lobster', cursive;
+}

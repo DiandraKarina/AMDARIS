@@ -1,0 +1,24 @@
+<div class = "card-wrapper">
+    <article>
+        <div class = "img-box">
+            <img src = "src/images/background1.jpg" alt = "">
+        </div>
+        <a routerLink="/post/{{post.id}}" class="stretched-link">
+            <i class="fas fa-user-circle mr-1"></i>
+          </a>
+        <div class = "text-content">
+            <h3>{{post.title}}</h3>
+            <div class = "rating">
+              <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+            </div>
+
+            <p>{{post.description}}</p>
+            <span class="aDate">
+                {{post.dateTime}}
+              </span>
+            <div class="view-button">
+                <app-button color="pink" text="View"></app-button>
+              </div>
+        </div>
+    </article>
+</div>

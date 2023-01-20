@@ -1,1 +1,53 @@
-<p>login works!</p>
+<app-navbar2></app-navbar2>
+<form [formGroup]="myForm" class="form-container" >
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field class="full-width">
+            <input
+              type="email"
+              formControlName="email"
+              matInput
+              placeholder="Email"
+            />
+            <mat-error *ngIf="myForm.controls['email'].errors?.['required']"
+              >Email is required</mat-error
+            >
+            <mat-error *ngIf="email?.invalid && email?.touched"
+              >Your email does not look right</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="full-width">
+            <input
+          type="password"
+          formControlName="password"
+          matInput
+          placeholder="Password"
+          matInput [type]="hide ? 'password' : 'text'"
+        >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+            <mat-error
+              *ngIf="password?.invalid && password?.touched"
+            ></mat-error>
+            <mat-error *ngIf="myForm.controls['password'].errors?.['required']"
+              >Password is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <app-button color="#e8bada" text="Log In" type="submit"></app-button>
+      </mat-card-actions>
+  </mat-card>
+</form>
+<app-footer></app-footer>

@@ -1,4 +1,4 @@
-
+<app-navbar2></app-navbar2>
 <form [formGroup]="myForm" class="form-container">
   <mat-card>
     <mat-card-header>
@@ -6,7 +6,7 @@
     </mat-card-header>
     <mat-card-content>
       <div class="row">
-          <div class="col-md-6">
+        <div class="col-md-6">
           <mat-form-field class="full-width">
             <input
               formControlName="firstName"
@@ -17,20 +17,20 @@
               >First Name is required</mat-error
             >
           </mat-form-field>
-      </div>
-      <div class="col-md-6">
-        <mat-form-field class="full-width">
-          <input
-            formControlName="lastName"
-            matInput
-            placeholder="Last Name"
-          />
-          <mat-error *ngIf="myForm.controls['lastName'].errors?.['required']"
-            >Last Name is required</mat-error
-          >
-        </mat-form-field>
-      </div>
-      <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input
+              formControlName="lastName"
+              matInput
+              placeholder="Last Name"
+            />
+            <mat-error *ngIf="myForm.controls['lastName'].errors?.['required']"
+              >Last Name is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
           <mat-form-field class="full-width">
             <input
               type="email"
@@ -61,39 +61,69 @@
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <input
-              type="password"
-              formControlName="password"
+              type="url"
+              formControlName="facebook"
               matInput
-              placeholder="Password"
+              placeholder="Facebook Link"
             />
-            
-            <mat-error *ngIf="password?.invalid&&password?.touched">This password is weak</mat-error>
-            <mat-error *ngIf="myForm.controls['password'].errors?.['required']"
-              >Password is required</mat-error
-            >
+            <mat-error *ngIf="facebook_link?.invalid&&facebook_link?.touched">URL is not valid</mat-error>
           </mat-form-field>
       </div>
       <div class="col-md-6">
-      <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <input formControlName="dob" matInput [matDatepicker]="picker">
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+        <mat-form-field class="full-width">
+          <input
+            type="url"
+            formControlName="instagram"
+            matInput
+            placeholder="Instagram Link"
+          />
         </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="fill">
+        <mat-label>Date of birth</mat-label>
+        <input formControlName="dob" matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="full-width">
+        <input
+          type="password"
+          formControlName="password"
+          matInput
+          placeholder="Password"
+          matInput [type]="hide ? 'password' : 'text'"
+        >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password?.invalid && password?.touched"
+          >This password is weak</mat-error
+        >
+        <mat-error *ngIf="myForm.controls['password'].errors?.['required']"
+          >Password is required</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <mat-radio-group formControlName="gender" class="margin-left">
+          <mat-radio-button value="male"> Male </mat-radio-button>
+          <mat-radio-button value="female"> Female </mat-radio-button>
+        </mat-radio-group>
       </div>
+    </div>
       </div>
-      <div class="row">
-          <div class="col-md-12">
-            <mat-radio-group formControlName="gender" class="margin-left">
-              <mat-radio-button value="male"> Male </mat-radio-button>
-              <mat-radio-button value="female"> Female </mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div>
     </mat-card-content>
     <mat-card-actions>
-      <app-button color="pink" text="Create Account"></app-button>
+      <app-button color="#e8bada" text="Create Account"></app-button>
     </mat-card-actions>
   </mat-card>
 </form>
+<app-footer></app-footer>
